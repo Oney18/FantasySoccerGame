@@ -3,153 +3,252 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TeamMenu"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:weightSum="2"
-    >
+    android:baselineAligned="false"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:id="@+id/leftHalf">
+        tools:context=".TeamMenu"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false" >
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/teamNamePic">
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/leftHalf" >
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:id="@+id/teamPic" />
-
-            <TextView
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TEAM NAME"
-                android:id="@+id/teamName"
-                android:textSize="40sp"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/teamNamePic" >
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/teamPic"
+                    android:src="@drawable/a1" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TEAM NAME"
+                    android:id="@+id/teamName"
+                    android:textSize="40sp"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/offenseBar"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="O"
+                    android:id="@+id/offenseText"
+                    android:textSize="60dp" />
+
+                <Space
+                    android:layout_width="35dp"
+                    android:layout_height="20dp" />
+
+                <SeekBar
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/offenseVal"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/defenseBar"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D"
+                    android:id="@+id/defenseText"
+                    android:textSize="60dp" />
+
+                <Space
+                    android:layout_width="35dp"
+                    android:layout_height="20dp" />
+
+                <SeekBar
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/defenseVal"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/goalkeepingBar"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="G"
+                    android:id="@+id/goalkText"
+                    android:textSize="60dp" />
+
+                <Space
+                    android:layout_width="35dp"
+                    android:layout_height="20dp" />
+
+                <SeekBar
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/goalkVal"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/avgBar"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:id="@+id/avgText"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="35dp"
+                    android:layout_height="20dp" />
+
+                <SeekBar
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/avgVal"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alter Team"
+                android:id="@+id/alterTeamButton"
+                android:layout_gravity="center_horizontal"
+                android:textSize="40dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/offenseBar"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="O"
-                android:id="@+id/offenseText"
-                android:textSize="60dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/rightHalf" >
 
             <Space
-                android:layout_width="35dp"
+                android:layout_width="20dp"
                 android:layout_height="20dp" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="List of Teams"
+                    android:id="@+id/teamListText"
+                    android:layout_gravity="center"
+                    android:textSize="50sp" />
+            </FrameLayout>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="366dp"
+                android:id="@+id/teamList" />
+
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/offenseDisp" />
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/createTeamBar">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Team"
+                        android:id="@+id/addTeam"
+                        android:textSize="30dp" />
+
+                    <Space
+                        android:layout_width="35dp"
+                        android:layout_height="20dp" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/newTeamName"
+                        android:nextFocusUp="@+id/newTeamName"
+                        android:nextFocusLeft="@+id/newTeamName"
+                        android:inputType="text" />
+                </LinearLayout>
+            </FrameLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/defenseBar"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D"
-                android:id="@+id/defenseText"
-                android:textSize="60dp" />
-
-            <Space
-                android:layout_width="35dp"
-                android:layout_height="20dp" />
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/defenseVal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/goalkeepingBar"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="G"
-                android:id="@+id/goalkText"
-                android:textSize="60dp" />
-
-            <Space
-                android:layout_width="35dp"
-                android:layout_height="20dp" />
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/goalkVal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/avgBar"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="A"
-                android:id="@+id/avgText"
-                android:textSize="60dp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="35dp"
-                android:layout_height="20dp" />
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/avgVal" />
-        </LinearLayout>
-
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:id="@+id/rightHalf"></LinearLayout>
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="30dp" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:id="@+id/playButton"
+            android:textSize="70dp" />
+    </FrameLayout>
 </LinearLayout>
