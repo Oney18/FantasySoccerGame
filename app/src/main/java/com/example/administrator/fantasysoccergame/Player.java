@@ -2,10 +2,12 @@ package com.example.administrator.fantasysoccergame;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
+
 /**
  * Created by oney18 on 9/28/2015.
  */
-public class Player {
+public class Player implements Serializable{
     private String name;
     private Drawable portrait;
     private int offense;

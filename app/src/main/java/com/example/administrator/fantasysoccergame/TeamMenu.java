@@ -4,12 +4,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class TeamMenu extends Activity {
@@ -25,6 +32,12 @@ public class TeamMenu extends Activity {
     private Button playButton;
     private ListView teamList;
     private EditText newTeam;
+
+    private HashMap<String, Team> listOfTeams;
+    private ArrayList<String> listOfTeamNames;
+    private ArrayAdapter<String> listAdapter;
+
+    private HashMap<String, Player> listOfPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +56,54 @@ public class TeamMenu extends Activity {
         teamList = (ListView) findViewById(R.id.teamList);
         newTeam = (EditText) findViewById(R.id.newTeamName);
 
+        offenseVal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; //disables the seek bar from being altered
+            }
+        });
 
+        defenseVal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; //disables the seek bar from being altered
+            }
+        });
+
+        goalkVal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; //disables the seek bar from being altered
+            }
+        });
+
+        avgVal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; //disables the seek bar from being altered
+            }
+        });
+
+        listOfTeams = new HashMap<String, Team>();
+        listOfTeamNames = new ArrayList<String>();
+        listAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listOfTeamNames);
+        teamList.setAdapter(listAdapter);
+        this.initializeTeams();
+
+    }
+
+    private void initializeTeams() {
+        Team team1 = new Team("Bottles");
+        listOfTeams.put(team1.getName(),team1);
+        listAdapter.add(team1.getName());
+
+        Team team2 = new Team("Jars");
+        listOfTeams.put(team2.getName(),team2);
+        listAdapter.add(team2.getName());
+
+        Team team3 = new Team("Cans");
+        listOfTeams.put(team3.getName(),team3);
+        listAdapter.add(team3.getName());
     }
 
     @Override
