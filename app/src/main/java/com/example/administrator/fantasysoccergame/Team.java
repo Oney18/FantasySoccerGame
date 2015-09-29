@@ -56,6 +56,16 @@ public class Team implements Serializable {
         return players;
     }
 
+    public boolean checkForPlayer(Player player){
+
+        for(int i = 0; i < players.size(); i++){
+            if (players.get(i).getName().equals(player.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addPlayer(Player player){
         this.players.add(player);
     }

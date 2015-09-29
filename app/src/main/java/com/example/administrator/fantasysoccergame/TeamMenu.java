@@ -269,7 +269,7 @@ public class TeamMenu extends Activity {
         listOfPlayerNames.add(nama.getName());
 
         Player oldBay = new Player("Old Bay", 60, 70, 10);
-        nutmeg.setPortrait(R.drawable.old_bay);
+        oldBay.setPortrait(R.drawable.old_bay);
         listOfPlayers.put(oldBay.getName(), oldBay);
         listOfPlayerNames.add(oldBay.getName());
 
@@ -339,6 +339,19 @@ public class TeamMenu extends Activity {
             intent.putExtra("Player Hash", listOfPlayers);
 
             startActivityForResult(intent, 100);
+        }
+    }
+
+    public void onActivityResult(int reqCode, int resCode, Intent returnedData){
+        if(reqCode == 100)
+        {
+            if(resCode == RESULT_OK){
+                listOfPlayerNames = returnedData.getStringArrayListExtra("New Player List");
+                listOfPlayers = (HashMap<String, Player>) returnedData.getSerializableExtra("New Player Hash");
+                Team temp = (Team) returnedData.getSerializableExtra("New Team");
+                listOfTeams.put(temp.getName(), temp);
+                listAdapter.notifyDataSetChanged();
+            }
         }
     }
 

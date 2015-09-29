@@ -73,8 +73,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/offenseVal"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="override" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <LinearLayout
@@ -100,8 +99,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/defVal"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="override" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <LinearLayout
@@ -127,8 +125,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/goalkVal"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="override" />
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
 
             <LinearLayout
@@ -177,7 +174,6 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:id="@+id/onTeamIndicator"
-                    android:onClick="override"
                     android:textSize="30sp" />
             </LinearLayout>
 
@@ -185,13 +181,30 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp" />
 
-            <Button
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add To Team"
-                android:id="@+id/addToTeam"
-                android:layout_gravity="center"
-                android:textSize="50sp" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:id="@+id/returnButton"
+                    android:textSize="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="goBack" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add To\nTeam"
+                    android:id="@+id/addToTeam"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:onClick="addToTeam" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -224,7 +237,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
-                android:id="@+id/listView" />
+                android:id="@+id/playerList" />
 
             <Space
                 android:layout_width="20dp"
@@ -247,7 +260,7 @@
                         android:text="Add\nPlayer"
                         android:id="@+id/addPlayer"
                         android:textSize="30dp"
-                        android:onClick="addPlayer" />
+                        android:onClick="makePlayer" />
 
                     <Space
                         android:layout_width="35dp"
@@ -275,7 +288,7 @@
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/statsArea">
@@ -371,7 +384,7 @@
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/positionsOptions">
 
