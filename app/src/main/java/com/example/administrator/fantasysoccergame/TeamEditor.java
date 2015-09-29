@@ -21,6 +21,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/* @author: Jarrett Oney
+ * @date: 9/28/15
+ * @purpose:  Contains the interface used to edit which
+ *            player is on the selected team. Allows
+ *            creation of new players
+ */
 
 public class TeamEditor extends Activity {
 
@@ -216,7 +222,7 @@ public class TeamEditor extends Activity {
         if(strikerOpt.isChecked()){
             player.addPosPlayed(1);
         }
-        if(defenderOpt.isChecked()){
+        if (defenderOpt.isChecked()){
             player.addPosPlayed(2);
         }
         if(goalieOpt.isChecked()){

@@ -23,6 +23,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/* @author: Jarrett Oney
+ * @date: 9/28/15
+ * @purpose: Contains the main interface of the app, allows user
+ *           to see the stats of different teams and move into
+ *           over activities. Allows creation of new teams
+ */
 
 public class TeamMenu extends Activity {
 

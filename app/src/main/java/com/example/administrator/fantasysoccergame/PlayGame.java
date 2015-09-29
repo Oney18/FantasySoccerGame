@@ -23,6 +23,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/* @author: Jarrett Oney
+ * @date: 9/28/15
+ * @purpose:  Contains the soccer field and allows the user
+ *            to select two teams to face off. Also allows
+ *            user to select which players play in which positions
+ */
+
 public class PlayGame extends Activity {
 
     private Spinner goalieASpin;
@@ -150,7 +157,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 goalieA = listOfPlayers.get(playerName);
                 goalieAPic.setImageResource(goalieA.getPortraitID());
-                ((TextView)view).setText("G"); //Sets the spinner's text
+                if(goalieA.getPortraitID() != 0) {
+                    ((TextView) view).setText("G"); //Sets the spinner's text if extra player
+                }
 
             }
 
@@ -163,7 +172,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 goalieB = listOfPlayers.get(playerName);
                 goalieBPic.setImageResource(goalieB.getPortraitID());
-                ((TextView)view).setText("G"); //Sets the spinner's text
+                if(goalieB.getPortraitID() != 0) {
+                    ((TextView) view).setText("G"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -175,7 +186,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 strikerA1 = listOfPlayers.get(playerName);
                 strikerA1Pic.setImageResource(strikerA1.getPortraitID());
-                ((TextView)view).setText("O"); //Sets the spinner's text
+                if(strikerA1.getPortraitID() != 0) {
+                    ((TextView) view).setText("O"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -187,7 +200,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 strikerA2 = listOfPlayers.get(playerName);
                 strikerA2Pic.setImageResource(strikerA2.getPortraitID());
-                ((TextView)view).setText("O"); //Sets the spinner's text
+                if(strikerA2.getPortraitID() != 0) {
+                    ((TextView) view).setText("O"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -199,7 +214,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 strikerB1 = listOfPlayers.get(playerName);
                 strikerB1Pic.setImageResource(strikerB1.getPortraitID());
-                ((TextView)view).setText("O"); //Sets the spinner's text
+                if(strikerB1.getPortraitID() != 0) {
+                    ((TextView) view).setText("O"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -211,7 +228,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 strikerB2 = listOfPlayers.get(playerName);
                 strikerB2Pic.setImageResource(strikerB2.getPortraitID());
-                ((TextView)view).setText("O"); //Sets the spinner's text
+                if(strikerB2.getPortraitID() != 0) {
+                    ((TextView) view).setText("O"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -223,7 +242,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 defA1 = listOfPlayers.get(playerName);
                 defA1Pic.setImageResource(defA1.getPortraitID());
-                ((TextView)view).setText("D"); //Sets the spinner's text
+                if(defA1.getPortraitID() != 0) {
+                    ((TextView) view).setText("D"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -235,7 +256,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 defA2 = listOfPlayers.get(playerName);
                 defA2Pic.setImageResource(defA2.getPortraitID());
-                ((TextView)view).setText("D"); //Sets the spinner's text
+                if(defA2.getPortraitID() != 0) {
+                    ((TextView) view).setText("D"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -247,7 +270,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 defB1 = listOfPlayers.get(playerName);
                 defB1Pic.setImageResource(defB1.getPortraitID());
-                ((TextView)view).setText("D"); //Sets the spinner's text
+                if(defB1.getPortraitID() != 0) {
+                    ((TextView) view).setText("D"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -259,7 +284,9 @@ public class PlayGame extends Activity {
                 String playerName = adapter.getItemAtPosition(index).toString();
                 defB2 = listOfPlayers.get(playerName);
                 defB2Pic.setImageResource(defB2.getPortraitID());
-                ((TextView)view).setText("D"); //Sets the spinner's text
+                if(defB2.getPortraitID() != 0) {
+                    ((TextView) view).setText("D"); //Sets the spinner's text if extra player
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -353,10 +380,13 @@ public class PlayGame extends Activity {
         int aGoals = 0;
         int bGoals = 0;
 
-        for(int i = 0; i < aShots; i++){
-            if(RNGesus.nextInt(100) < aGoalProb){
+        //Simulate shots on goal
+        for(int i = 0; i < aShots; i++) {
+            if (RNGesus.nextInt(100) < aGoalProb) {
                 aGoals++;
             }
+        }
+        for(int i = 0; i < bShots; i++){
             if(RNGesus.nextInt(100) < bGoalProb){
                 bGoals++;
             }

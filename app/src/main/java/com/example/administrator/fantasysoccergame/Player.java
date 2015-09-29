@@ -5,9 +5,12 @@ import android.graphics.drawable.Drawable;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by oney18 on 9/28/2015.
+/* @author: Jarrett Oney
+ * @date: 9/28/15
+ * @purpose:  Contains the attributes related to
+ *            a soccer player
  */
+
 public class Player implements Serializable{
     private String name;
     private int portraitID;
@@ -23,6 +26,7 @@ public class Player implements Serializable{
         this.defense = defense;
         this.goalkeeping = goalkeeping;
         this.positionsPlayed = new ArrayList<String>();
+        this.portraitID = 0;
     }
 
     public void setPortrait(int portraitID){

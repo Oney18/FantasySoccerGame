@@ -5,8 +5,11 @@ import android.graphics.drawable.Drawable;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by oney18 on 9/28/2015.
+/* @author: Jarrett Oney
+ * @date: 9/28/15
+ * @purpose:  Contains the attributes related to a team
+ *            as well as an arraylist of the players on
+ *            the team
  */
 public class Team implements Serializable {
     private String name;
