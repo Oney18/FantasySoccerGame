@@ -3,6 +3,7 @@ package com.example.administrator.fantasysoccergame;
 import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by oney18 on 9/28/2015.
@@ -13,12 +14,14 @@ public class Player implements Serializable{
     private int offense;
     private int defense;
     private int goalkeeping;
+    private ArrayList<String> positionsPlayed;
 
     public Player(String name, int offense, int defense, int goalkeeping){
         this.name = name;
         this.offense = offense;
         this.defense = defense;
         this.goalkeeping = goalkeeping;
+        this.positionsPlayed = new ArrayList<String>();
     }
 
     public void setPortrait(int portraitID){
@@ -44,4 +47,29 @@ public class Player implements Serializable{
     public int getGoalkeeping(){
         return this.goalkeeping;
     }
+
+    public void addPosPlayed(int posID) {
+        switch (posID) {
+            case 1:
+                if(!positionsPlayed.contains("Striker")) {
+                    positionsPlayed.add("Striker");
+                }
+                break;
+            case 2:
+                if(!positionsPlayed.contains("Defender")) {
+                    positionsPlayed.add("Defender");
+                }
+                break;
+            case 3:
+                if(!positionsPlayed.contains("Goaltender")) {
+                    positionsPlayed.add("Goaltender");
+                }
+                break;
+        }
+    }
+
+    public ArrayList<String> getPositionsPlayed(){
+        return this.positionsPlayed;
+    }
+
 }

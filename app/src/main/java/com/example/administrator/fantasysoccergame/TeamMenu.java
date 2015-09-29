@@ -2,6 +2,7 @@ package com.example.administrator.fantasysoccergame;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -65,8 +66,10 @@ public class TeamMenu extends Activity {
 
         listOfTeams = new HashMap<String, Team>();
         listOfTeamNames = new ArrayList<String>();
+
         listOfPlayers = new HashMap<String, Player>();
         listOfPlayerNames = new ArrayList<String>();
+
         listAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listOfTeamNames);
         teamList.setAdapter(listAdapter);
 
@@ -228,7 +231,7 @@ public class TeamMenu extends Activity {
         listAdapter.add(lynx.getName());
     }
 
-    /* -- Initialilizes the pre-made players -- */
+    /* -- Initializes the pre-made players -- */
     private void initializePlayers() {
         Player A1 = new Player("A1", 72, 36, 44);
         A1.setPortrait(R.drawable.a1);
@@ -325,6 +328,18 @@ public class TeamMenu extends Activity {
         listOfPlayers.put(vanilla.getName(), vanilla);
         listOfPlayerNames.add(vanilla.getName());
 
+    }
+
+    public void openTeamEditor(View view){
+        if(!teamName.getText().toString().isEmpty()) {
+            Intent intent = new Intent(this, TeamEditor.class);
+            intent.putExtra("Team Selected", listOfTeams.get(teamName.getText().toString()));
+
+            intent.putStringArrayListExtra("Player List", listOfPlayerNames);
+            intent.putExtra("Player Hash", listOfPlayers);
+
+            startActivityForResult(intent, 100);
+        }
     }
 
     @Override

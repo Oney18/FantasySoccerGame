@@ -43,7 +43,6 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="TEAM NAME"
                     android:id="@+id/teamName"
                     android:textSize="40sp"
                     android:layout_gravity="center"
@@ -165,7 +164,8 @@
                 android:text="Alter Team"
                 android:id="@+id/alterTeamButton"
                 android:layout_gravity="center_horizontal"
-                android:textSize="40dp" />
+                android:textSize="40dp"
+                android:onClick="openTeamEditor" />
         </LinearLayout>
 
         <LinearLayout
