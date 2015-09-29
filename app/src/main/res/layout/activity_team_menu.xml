@@ -38,8 +38,7 @@
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:id="@+id/teamPic"
-                    android:src="@drawable/a1" />
+                    android:id="@+id/teamPic" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -216,7 +215,8 @@
                         android:layout_height="wrap_content"
                         android:text="Add Team"
                         android:id="@+id/addTeam"
-                        android:textSize="30dp" />
+                        android:textSize="30dp"
+                        android:onClick="addTeam" />
 
                     <Space
                         android:layout_width="35dp"

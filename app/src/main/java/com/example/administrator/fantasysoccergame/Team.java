@@ -75,10 +75,10 @@ public class Team implements Serializable {
         this.offense = off / players.size();
         this.defense = def / players.size();
         this.goalkeeping = goalKeep / players.size();
-        this.average = (this.offense + this.defense + this.average) / 3;
+        this.average = (this.offense + this.defense + this.goalkeeping) / 3;
     }
 
-    public void setLogo(int logoID){
+    public void setLogoID(int logoID){
         this.logoID = logoID;
     }
 
