@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class Player implements Serializable{
     private String name;
-    private Drawable portrait;
+    private int portraitID;
     private int offense;
     private int defense;
     private int goalkeeping;
@@ -19,15 +19,14 @@ public class Player implements Serializable{
         this.offense = offense;
         this.defense = defense;
         this.goalkeeping = goalkeeping;
-        this.portrait = null;
     }
 
-    public void setPortrait(Drawable portrait){
-        this.portrait = portrait;
+    public void setPortrait(int portraitID){
+        this.portraitID = portraitID;
     }
 
-    public Drawable getPortrait(){
-        return this.portrait;
+    public int getPortraitID(){
+        return this.portraitID;
     }
 
     public String getName(){

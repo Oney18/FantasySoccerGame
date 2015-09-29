@@ -15,7 +15,7 @@ public class Team implements Serializable {
     private int defense;
     private int goalkeeping;
     private int average;
-    private Drawable logo;
+    private int logoID; //ID of the drawable
 
     public Team(String name){
         this.name = name;
@@ -48,8 +48,8 @@ public class Team implements Serializable {
         return this.average;
     }
 
-    public Drawable getLogo(){
-        return this.logo;
+    public int getLogoID(){
+        return this.logoID;
     }
 
     public ArrayList<Player> getPlayers(){
@@ -61,11 +61,25 @@ public class Team implements Serializable {
     }
 
     public void setStats(){
-        //average out stats, do later
+        int off = 0;
+        int def = 0;
+        int goalKeep = 0;
+
+        for(int i = 0; i < players.size(); i++)
+        {
+            off += players.get(i).getOffense();
+            def += players.get(i).getDefense();
+            goalKeep += players.get(i).getGoalkeeping();
+        }
+
+        this.offense = off / players.size();
+        this.defense = def / players.size();
+        this.goalkeeping = goalKeep / players.size();
+        this.average = (this.offense + this.defense + this.average) / 3;
     }
 
-    public void setLogo(Drawable newLogo){
-        this.logo = newLogo;
+    public void setLogo(int logoID){
+        this.logoID = logoID;
     }
 
     public void removePlayer(Player player){
