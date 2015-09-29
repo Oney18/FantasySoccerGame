@@ -32,9 +32,6 @@ public class TeamMenu extends Activity {
     private SeekBar defenseVal;
     private SeekBar goalkVal;
     private SeekBar avgVal;
-    private Button alterTeam;
-    private Button addTeam;
-    private Button playButton;
     private ListView teamList;
     private EditText newTeam;
 
@@ -58,9 +55,6 @@ public class TeamMenu extends Activity {
         defenseVal = (SeekBar) findViewById(R.id.defenseVal);
         goalkVal = (SeekBar) findViewById(R.id.goalkVal);
         avgVal = (SeekBar) findViewById(R.id.avgVal);
-        alterTeam = (Button) findViewById(R.id.alterTeamButton);
-        addTeam = (Button) findViewById(R.id.addTeam);
-        playButton = (Button) findViewById(R.id.playButton);
         teamList = (ListView) findViewById(R.id.teamList);
         newTeam = (EditText) findViewById(R.id.newTeamName);
 
@@ -73,7 +67,8 @@ public class TeamMenu extends Activity {
         listOfPlayerNames = new ArrayList<String>();
 
         //Assigns team list to listview
-        listAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listOfTeamNames);
+        listAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,
+                listOfTeamNames);
         teamList.setAdapter(listAdapter);
 
         //Premade teams/players
@@ -367,6 +362,7 @@ public class TeamMenu extends Activity {
     public void openTeamEditor(View view){
         if(!teamName.getText().toString().isEmpty()) {
             Intent intent = new Intent(this, TeamEditor.class);
+
             intent.putExtra("Team Selected", listOfTeams.get(teamName.getText().toString()));
 
             intent.putStringArrayListExtra("Player List", listOfPlayerNames);
@@ -374,6 +370,20 @@ public class TeamMenu extends Activity {
 
             startActivityForResult(intent, 100);
         }
+    }
+
+    /* -- Moves to the game activity -- */
+    public void startGame(View view){
+        Intent intent = new Intent(this, PlayGame.class);
+
+        intent.putStringArrayListExtra("Team List", listOfTeamNames);
+        intent.putExtra("Team Hash", listOfTeams);
+
+        intent.putStringArrayListExtra("Player List", listOfPlayerNames);
+        intent.putExtra("Player Hash", listOfPlayers);
+
+        startActivity(intent);
+
     }
 
     /* -- Pulls info from editor activity -- */

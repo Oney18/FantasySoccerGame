@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Team implements Serializable {
     private String name;
     private ArrayList<Player> players;
+    private ArrayList<String> roster;
     private int offense;
     private int defense;
     private int goalkeeping;
@@ -21,6 +22,7 @@ public class Team implements Serializable {
     public Team(String name){
         this.name = name;
         this.players = new ArrayList<Player>();
+        this.roster = new ArrayList<String>();
 
         //stats determined by players; 0 to begin as no players
         this.offense = 0;
@@ -67,6 +69,11 @@ public class Team implements Serializable {
     /* -- Adds player to team -- */
     public void addPlayer(Player player){
         this.players.add(player);
+        this.roster.add(player.getName());
+    }
+
+    public ArrayList<String> getRoster(){
+        return this.roster;
     }
 
     /* -- Sets the team's stats based on players' stats -- */
@@ -99,6 +106,8 @@ public class Team implements Serializable {
         for(int i = 0; i < players.size(); i++){
             if (players.get(i).isEqual(player)){
                 players.remove(i);
+                roster.remove(i); //Name and player added to respective lists at same time
+                                  //Will be same index in both
             }
         }
     }

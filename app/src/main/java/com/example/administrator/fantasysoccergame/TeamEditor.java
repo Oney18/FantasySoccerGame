@@ -78,7 +78,7 @@ public class TeamEditor extends Activity {
         goalkVal = (SeekBar) findViewById(R.id.goalkVal);
 
         //Displays selected team name
-        teamName.setText("On the" + teamSelected.getName() +"?");
+        teamName.setText("On the " + teamSelected.getName() +"?");
 
         //Links player list to listview
         playerListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,
@@ -225,7 +225,6 @@ public class TeamEditor extends Activity {
 
         //Add player to lists
         listOfPlayers.put(player.getName(), player);
-        listOfPlayerNames.add(player.getName());
         playerListAdapter.add(player.getName());
     }
 

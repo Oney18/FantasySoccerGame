@@ -249,6 +249,7 @@
             android:layout_height="wrap_content"
             android:text="Play"
             android:id="@+id/playButton"
-            android:textSize="70dp" />
+            android:textSize="70dp"
+            android:onClick="startGame" />
     </FrameLayout>
 </LinearLayout>
