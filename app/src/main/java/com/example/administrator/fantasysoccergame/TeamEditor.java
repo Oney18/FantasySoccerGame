@@ -31,8 +31,6 @@ public class TeamEditor extends Activity {
     private ArrayAdapter<String> positionsAdapter;
     private Team teamSelected;
 
-    private Button addToTeam;
-    private Button newPlayer;
     private CheckBox onTeamIndicator;
     private RadioButton strikerOpt;
     private RadioButton defenderOpt;
@@ -44,6 +42,7 @@ public class TeamEditor extends Activity {
     private ListView playerList;
     private ListView positionsList;
     private TextView playerName;
+    private TextView teamName;
     private ImageView playerPic;
     private SeekBar offVal;
     private SeekBar defVal;
@@ -54,15 +53,13 @@ public class TeamEditor extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_editor);
 
+        //Get data sent from main activity
         intent = getIntent();
-
         teamSelected = (Team) intent.getSerializableExtra("Team Selected");
-
         listOfPlayerNames = intent.getStringArrayListExtra("Player List");
         listOfPlayers = (HashMap<String, Player>) intent.getSerializableExtra("Player Hash");
 
-        addToTeam = (Button) findViewById(R.id.addToTeam);
-        newPlayer = (Button) findViewById(R.id.addPlayer);
+        //Initialize views
         onTeamIndicator = (CheckBox) findViewById(R.id.onTeamIndicator);
         strikerOpt = (RadioButton) findViewById(R.id.strikerOpt);
         defenderOpt = (RadioButton) findViewById(R.id.defenderOpt);
@@ -74,15 +71,21 @@ public class TeamEditor extends Activity {
         playerList = (ListView) findViewById(R.id.playerList);
         positionsList = (ListView) findViewById(R.id.positionsPlayedList);
         playerName = (TextView) findViewById(R.id.playerName);
+        teamName = (TextView) findViewById(R.id.onTeamText);
         playerPic = (ImageView) findViewById(R.id.playerPic);
         offVal = (SeekBar) findViewById(R.id.offenseVal);
         defVal = (SeekBar) findViewById(R.id.defVal);
         goalkVal = (SeekBar) findViewById(R.id.goalkVal);
 
+        //Displays selected team name
+        teamName.setText("On the" + teamSelected.getName() +"?");
+
+        //Links player list to listview
         playerListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,
-                                                    listOfPlayerNames);
+                    listOfPlayerNames);
         playerList.setAdapter(playerListAdapter);
 
+        //Gets player selected and puts on stats area
         playerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long unneeded) {
@@ -121,6 +124,7 @@ public class TeamEditor extends Activity {
 
     }
 
+    /* -- Returns back to main activity, sends altered team data and player data -- */
     public void goBack(View view){
         Intent alteredData = new Intent();
         alteredData.putStringArrayListExtra("New Player List", listOfPlayerNames);
@@ -130,12 +134,14 @@ public class TeamEditor extends Activity {
         finish();
     }
 
+    /* -- Updates stats area with selected player -- */
     private void updateScreen(Player player) {
         playerPic.setImageResource(player.getPortraitID());
         playerName.setText(player.getName());
         offVal.setProgress(player.getOffense());
         defVal.setProgress(player.getDefense());
         goalkVal.setProgress(player.getGoalkeeping());
+
         if(teamSelected.checkForPlayer(player)){
             onTeamIndicator.setChecked(true);
         }
@@ -148,6 +154,7 @@ public class TeamEditor extends Activity {
         positionsList.setAdapter(positionsAdapter);
     }
 
+    /* -- Adds the player to the team -- */
     public void addToTeam(View view){
         if(!playerName.getText().toString().isEmpty()) {
             Player player = listOfPlayers.get(playerName.getText().toString());
@@ -157,11 +164,24 @@ public class TeamEditor extends Activity {
         }
     }
 
+    /* -- Removes the player from the team -- */
+    public void removeFromTeam(View view){
+        if(!playerName.getText().toString().isEmpty()) { //checks for misclick
+            Player player = listOfPlayers.get(playerName.getText().toString());
+            teamSelected.removePlayer(player);
+            teamSelected.setStats();
+            this.updateScreen(player);
+        }
+    }
+
+    /* -- Creates a new player from input data -- */
     public void makePlayer(View view){
         String name = newPlayerName.getText().toString();
         if(name.equals("Player Name") || listOfPlayerNames.contains(name) || name.isEmpty()){
-            return; //false click
+            return; //false click or duplo
         }
+
+        //Retrieve stats, checks for empty fields and out of bound values
         int off, def, goalk;
         try {
             off = Integer.valueOf(offIn.getText().toString());
@@ -191,6 +211,8 @@ public class TeamEditor extends Activity {
         }
 
         Player player = new Player(name, off, def, goalk);
+
+        //Check for pos played
         if(strikerOpt.isChecked()){
             player.addPosPlayed(1);
         }
@@ -200,6 +222,8 @@ public class TeamEditor extends Activity {
         if(goalieOpt.isChecked()){
             player.addPosPlayed(3);
         }
+
+        //Add player to lists
         listOfPlayers.put(player.getName(), player);
         listOfPlayerNames.add(player.getName());
         playerListAdapter.add(player.getName());

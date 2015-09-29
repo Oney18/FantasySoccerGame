@@ -16,6 +16,7 @@ public class Player implements Serializable{
     private int goalkeeping;
     private ArrayList<String> positionsPlayed;
 
+    /* -- ctor -- */
     public Player(String name, int offense, int defense, int goalkeeping){
         this.name = name;
         this.offense = offense;
@@ -48,6 +49,7 @@ public class Player implements Serializable{
         return this.goalkeeping;
     }
 
+    /* -- Adds positions played by player -- */
     public void addPosPlayed(int posID) {
         switch (posID) {
             case 1:
@@ -66,6 +68,14 @@ public class Player implements Serializable{
                 }
                 break;
         }
+    }
+
+    /* -- Checks if this player is eual to passed player -- */
+    public boolean isEqual(Player player){
+       if(this.name.equals(player.getName())){
+           return true;
+       }
+        return false;
     }
 
     public ArrayList<String> getPositionsPlayed(){

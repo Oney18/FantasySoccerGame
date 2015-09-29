@@ -20,6 +20,10 @@
             android:name=".TeamEditor"
             android:label="@string/title_activity_team_editor" >
         </activity>
+        <activity
+            android:name=".PlayGame"
+            android:label="@string/title_activity_play_game" >
+        </activity>
     </application>
 
 </manifest>

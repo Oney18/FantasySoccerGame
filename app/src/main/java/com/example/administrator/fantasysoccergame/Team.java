@@ -17,6 +17,7 @@ public class Team implements Serializable {
     private int average;
     private int logoID; //ID of the drawable
 
+    /* -- ctor -- */
     public Team(String name){
         this.name = name;
         this.players = new ArrayList<Player>();
@@ -52,29 +53,29 @@ public class Team implements Serializable {
         return this.logoID;
     }
 
-    public ArrayList<Player> getPlayers(){
-        return players;
-    }
-
+    /* -- Checks to see if a given player is on the team -- */
     public boolean checkForPlayer(Player player){
 
         for(int i = 0; i < players.size(); i++){
-            if (players.get(i).getName().equals(player.getName())){
+            if (players.get(i).isEqual(player)){
                 return true;
             }
         }
         return false;
     }
 
+    /* -- Adds player to team -- */
     public void addPlayer(Player player){
         this.players.add(player);
     }
 
+    /* -- Sets the team's stats based on players' stats -- */
     public void setStats(){
         int off = 0;
         int def = 0;
         int goalKeep = 0;
 
+        //Iterates values
         for(int i = 0; i < players.size(); i++)
         {
             off += players.get(i).getOffense();
@@ -82,6 +83,7 @@ public class Team implements Serializable {
             goalKeep += players.get(i).getGoalkeeping();
         }
 
+        //Averages values
         this.offense = off / players.size();
         this.defense = def / players.size();
         this.goalkeeping = goalKeep / players.size();
@@ -92,7 +94,12 @@ public class Team implements Serializable {
         this.logoID = logoID;
     }
 
+    /* -- Removes player from team -- */
     public void removePlayer(Player player){
-        players.remove((Player) player);
+        for(int i = 0; i < players.size(); i++){
+            if (players.get(i).isEqual(player)){
+                players.remove(i);
+            }
+        }
     }
 }

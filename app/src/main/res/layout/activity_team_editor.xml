@@ -165,8 +165,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="On the Team?"
-                    android:id="@+id/textView"
+                    android:id="@+id/onTeamText"
                     android:textSize="30sp" />
 
                 <CheckBox
@@ -185,7 +184,8 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:id="@+id/buttonBar">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -204,6 +204,15 @@
                     android:layout_gravity="center"
                     android:textSize="30sp"
                     android:onClick="addToTeam" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remove\nFrom Team"
+                    android:id="@+id/removePlayer"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:onClick="removeFromTeam" />
             </LinearLayout>
 
         </LinearLayout>
