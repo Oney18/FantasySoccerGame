@@ -221,12 +221,15 @@ public class TeamEditor extends Activity {
         //Check for pos played
         if(strikerOpt.isChecked()){
             player.addPosPlayed(1);
+            strikerOpt.setChecked(false);
         }
         if (defenderOpt.isChecked()){
             player.addPosPlayed(2);
+            defenderOpt.setChecked(false);
         }
         if(goalieOpt.isChecked()){
             player.addPosPlayed(3);
+            goalieOpt.setChecked(false);
         }
 
         //Add player to lists

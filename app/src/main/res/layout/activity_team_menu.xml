@@ -60,9 +60,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="O"
+                    android:text="@string/o"
                     android:id="@+id/offenseText"
-                    android:textSize="60dp" />
+                    android:textSize="60sp" />
 
                 <Space
                     android:layout_width="35dp"
@@ -87,9 +87,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="D"
+                    android:text="@string/d"
                     android:id="@+id/defenseText"
-                    android:textSize="60dp" />
+                    android:textSize="60sp" />
 
                 <Space
                     android:layout_width="35dp"
@@ -114,9 +114,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="G"
+                    android:text="@string/g"
                     android:id="@+id/goalkText"
-                    android:textSize="60dp" />
+                    android:textSize="60sp" />
 
                 <Space
                     android:layout_width="35dp"
@@ -141,9 +141,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A"
+                    android:text="@string/a"
                     android:id="@+id/avgText"
-                    android:textSize="60dp"
+                    android:textSize="60sp"
                     android:textStyle="bold" />
 
                 <Space
@@ -161,10 +161,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alter Team"
+                android:text="@string/alterTeam"
                 android:id="@+id/alterTeamButton"
                 android:layout_gravity="center_horizontal"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 android:onClick="openTeamEditor" />
         </LinearLayout>
 
@@ -188,7 +188,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="List of Teams"
+                    android:text="@string/listOfTeams"
                     android:id="@+id/teamListText"
                     android:layout_gravity="center"
                     android:textSize="50sp" />
@@ -247,9 +247,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="@string/play"
             android:id="@+id/playButton"
-            android:textSize="70dp"
+            android:textSize="70sp"
             android:onClick="startGame" />
     </FrameLayout>
 </LinearLayout>

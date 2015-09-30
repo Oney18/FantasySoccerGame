@@ -2,429 +2,413 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:baselineAligned="false"
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context="com.example.administrator.fantasysoccergame.TeamEditor">
 
     <LinearLayout
-        tools:context=".TeamMenu"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:baselineAligned="false" >
+        android:layout_weight="1"
+        android:id="@+id/leftHalf" >
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="30dp" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/leftHalf" >
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/playerInfo" >
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="30dp" />
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/playerPic" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/playerInfo" >
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:id="@+id/playerPic" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/playerName"
-                    android:textSize="40sp"
-                    android:layout_gravity="center"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/oBar"
-                android:gravity="center_horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="O"
-                    android:id="@+id/offenseText"
-                    android:textSize="60dp" />
-
-                <Space
-                    android:layout_width="35dp"
-                    android:layout_height="20dp" />
-
-                <SeekBar
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/offenseVal"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/dBar"
-                android:gravity="center_horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="D"
-                    android:id="@+id/defenseText"
-                    android:textSize="60dp" />
-
-                <Space
-                    android:layout_width="35dp"
-                    android:layout_height="20dp" />
-
-                <SeekBar
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/defVal"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/goalkBar"
-                android:gravity="center_horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="G"
-                    android:id="@+id/goalkeepText"
-                    android:textSize="60dp" />
-
-                <Space
-                    android:layout_width="35dp"
-                    android:layout_height="20dp" />
-
-                <SeekBar
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/goalkVal"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/posBar"
-                android:gravity="center_horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:text="Positions\nPlayed:"
-                    android:id="@+id/positionsText"
-                    android:textStyle="normal"
-                    android:textSize="30sp" />
-
-                <ListView
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/positionsPlayedList" />
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/onTeamBar"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/onTeamText"
-                    android:textSize="30sp" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:id="@+id/onTeamIndicator"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/playerName"
+                android:textSize="40sp"
                 android:layout_gravity="center"
-                android:id="@+id/buttonBar">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Back"
-                    android:id="@+id/returnButton"
-                    android:textSize="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="goBack" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add To\nTeam"
-                    android:id="@+id/addToTeam"
-                    android:layout_gravity="center"
-                    android:textSize="30sp"
-                    android:onClick="addToTeam" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remove\nFrom Team"
-                    android:id="@+id/removePlayer"
-                    android:layout_gravity="center"
-                    android:textSize="30sp"
-                    android:onClick="removeFromTeam" />
-            </LinearLayout>
-
+                android:gravity="center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:id="@+id/rightHalf" >
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/oBar"
+            android:gravity="center_horizontal" >
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List of Players"
-                    android:id="@+id/playerListText"
-                    android:layout_gravity="center"
-                    android:textSize="50sp" />
-            </FrameLayout>
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:id="@+id/playerList" />
-
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="10dp" />
-
-            <FrameLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" >
+                android:text="@string/o"
+                android:id="@+id/offenseText"
+                android:textSize="60sp" />
+
+            <Space
+                android:layout_width="35dp"
+                android:layout_height="20dp" />
+
+            <SeekBar
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/offenseVal"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dBar"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d"
+                android:id="@+id/defenseText"
+                android:textSize="60sp" />
+
+            <Space
+                android:layout_width="35dp"
+                android:layout_height="20dp" />
+
+            <SeekBar
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/defVal"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/goalkBar"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/g"
+                android:id="@+id/goalkeepText"
+                android:textSize="60sp" />
+
+            <Space
+                android:layout_width="35dp"
+                android:layout_height="20dp" />
+
+            <SeekBar
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/goalkVal"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/posBar"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:text="@string/posPlayed"
+                android:id="@+id/positionsText"
+                android:textStyle="normal"
+                android:textSize="30sp" />
+
+            <ListView
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:id="@+id/positionsPlayedList" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/onTeamBar"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/onTeamText"
+                android:textSize="30sp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/onTeamIndicator"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:id="@+id/buttonBar">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:id="@+id/returnButton"
+                android:textSize="30sp"
+                android:layout_gravity="center_vertical"
+                android:onClick="goBack" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addToTeam"
+                android:id="@+id/addToTeam"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:onClick="addToTeam" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/removeFromTeam"
+                android:id="@+id/removePlayer"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:onClick="removeFromTeam" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:id="@+id/rightHalf" >
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/listOfPlayers"
+                android:id="@+id/playerListText"
+                android:layout_gravity="center"
+                android:textSize="50sp" />
+        </FrameLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:id="@+id/playerList" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addPlayerBar" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addPlayer"
+                android:id="@+id/addPlayer"
+                android:textSize="30sp"
+                android:onClick="makePlayer" />
+
+            <Space
+                android:layout_width="35dp"
+                android:layout_height="20dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/newPlayerName"
+                android:nextFocusUp="@+id/newPlayerName"
+                android:nextFocusLeft="@+id/newPlayerName"
+                android:inputType="text"
+                android:text="@string/playerName">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:id="@+id/infoArea"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="230dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/statsArea">
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/addPlayerBar" >
 
-                    <Button
-                        android:layout_width="wrap_content"
+                    android:id="@+id/oInput">
+
+                    <TextView
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="Add\nPlayer"
-                        android:id="@+id/addPlayer"
-                        android:textSize="30dp"
-                        android:onClick="makePlayer" />
+                        android:text="@string/offense"
+                        android:id="@+id/offInText"
+                        android:textSize="35sp" />
 
                     <Space
-                        android:layout_width="35dp"
+                        android:layout_width="15dp"
                         android:layout_height="20dp" />
 
                     <EditText
-                        android:layout_width="300dp"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/newPlayerName"
-                        android:nextFocusUp="@+id/newPlayerName"
-                        android:nextFocusLeft="@+id/newPlayerName"
-                        android:inputType="text"
-                        android:text="Player Name">
-
-                    </EditText>
-                </LinearLayout>
-            </FrameLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="2"
-                android:id="@+id/infoArea">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="230dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/statsArea">
-
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="20dp" />
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:id="@+id/oInput">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:text="Offense:"
-                            android:id="@+id/offInText"
-                            android:textSize="35dp" />
-
-                        <Space
-                            android:layout_width="15dp"
-                            android:layout_height="20dp" />
-
-                        <EditText
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/offIn" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="15dp"
-                        android:layout_height="20dp" />
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/defInBar" >
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:text="Defense:"
-                            android:id="@+id/defInText"
-                            android:textSize="35dp" />
-
-                        <Space
-                            android:layout_width="15dp"
-                            android:layout_height="20dp" />
-
-                        <EditText
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/defIn" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="15dp"
-                        android:layout_height="20dp" />
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout" >
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:text="Goaltending:"
-                            android:id="@+id/goalkInText"
-                            android:textSize="35dp" />
-
-                        <Space
-                            android:layout_width="15dp"
-                            android:layout_height="20dp" />
-
-                        <EditText
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/goalkIn" />
-                    </LinearLayout>
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/offIn" />
                 </LinearLayout>
 
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="20dp" />
+
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/positionsOptions">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/defInBar" >
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="Positions\nPlayed:"
-                        android:id="@+id/posPlayedText"
-                        android:textSize="35dp" />
+                        android:text="@string/defense"
+                        android:id="@+id/defInText"
+                        android:textSize="35sp" />
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Striker"
-                        android:id="@+id/strikerOpt"
-                        android:textSize="25dp" />
+                    <Space
+                        android:layout_width="15dp"
+                        android:layout_height="20dp" />
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
-                        android:text="Defender"
-                        android:id="@+id/defenderOpt"
-                        android:textSize="25dp" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Goaltender"
-                        android:id="@+id/goalieOpt"
-                        android:textSize="25dp" />
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/defIn" />
                 </LinearLayout>
+
+                <Space
+                    android:layout_width="15dp"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout" >
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/goaltending"
+                        android:id="@+id/goalkInText"
+                        android:textSize="35sp" />
+
+                    <Space
+                        android:layout_width="15dp"
+                        android:layout_height="20dp" />
+
+                    <EditText
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/goalkIn" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/positionsOptions">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/posPlayed"
+                    android:id="@+id/posPlayedText"
+                    android:textSize="35sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/striker"
+                    android:id="@+id/strikerOpt"
+                    android:textSize="25sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/defender"
+                    android:id="@+id/defenderOpt"
+                    android:textSize="25sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goaltender"
+                    android:id="@+id/goalieOpt"
+                    android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

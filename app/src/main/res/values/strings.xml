@@ -1,5 +1,30 @@
 <resources>
     <string name="app_name">FantasySoccerGame</string>
+    
+    <string name="listOfTeams">List of Teams</string>
+    <string name="addTeam">Add Team</string>
+    <string name="alterTeam">Alter Team</string>
+    <string name="play">Play</string>
+    <string name="o">O</string>
+    <string name="d">D</string>
+    <string name="g">G</string>
+    <string name="a">A</string>
+
+    <string name="addPlayer">Add\nPlayer</string>
+    <string name="posPlayed">Positions\nPlayed:</string>
+    <string name="back">Back</string>
+    <string name="addToTeam">Add To\nTeam</string>
+    <string name="removeFromTeam">Remove\nFrom Team</string>
+    <string name="listOfPlayers">List of Players</string>
+    <string name="playerName">Player Name</string>
+    <string name="offense">Offense:</string>
+    <string name="defense">Defense:</string>
+    <string name="goaltending">Goaltending:</string>
+    <string name="striker">Striker</string>
+    <string name="defender">Defender</string>
+    <string name="goaltender">Goaltender</string>
+
+    <string name="vs">Vs.</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

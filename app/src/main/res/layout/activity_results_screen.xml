@@ -36,10 +36,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text="@string/back"
         android:id="@+id/backButton"
         android:paddingTop="5dp"
         android:layout_gravity="center"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
 </LinearLayout>
